@@ -1,101 +1,98 @@
-# Playwright JavaScript Ecommerce Automation
+# Playwright E-commerce UI Automation
 
-This project contains end-to-end browser automation tests for the SauceDemo e-commerce website using Playwright and JavaScript/TypeScript.
+A browser-automation project for the public [SauceDemo](https://www.saucedemo.com/) sample application. It uses Playwright Test with TypeScript, page objects, reusable test data, and a GitHub Actions workflow.
 
-## Features
+[![Playwright Tests](https://github.com/harshadakhopade6/playwright-ecommerce-automation-saucedemo/actions/workflows/playwright.yml/badge.svg)](https://github.com/harshadakhopade6/playwright-ecommerce-automation-saucedemo/actions/workflows/playwright.yml)
 
-- Login flow validation
-- Product listing and sorting checks
-- Add-to-cart functionality
-- Checkout flow validation
-- Page Object Model (POM) structure
-- Reusable fixtures and test data
+## What is covered
 
-## Tech Stack
+| Area | Verified scenarios in the current test files |
+|---|---|
+| Login | Successful login, invalid password, invalid username, empty credentials |
+| Products | Products page visibility, sorting, adding one or multiple products to the cart |
+| Checkout | End-to-end purchase flow, cart item verification, order confirmation |
 
-- Playwright
-- JavaScript / TypeScript
-- Node.js
+The suite is a portfolio/sample-app exercise; it does not test a production commerce system.
 
-## Project Structure
+## Stack
 
-```bash
+- TypeScript
+- Playwright Test
+- Node.js and npm
+- Page Object Model (page classes under `pages/`)
+- Test data under `test-data/`
+- GitHub Actions workflow under `.github/workflows/`
+
+## Project structure
+
+```text
 .
-├── .github/
-│   └── workflows/
-│       └── playwright.yml
-├── Pages/
-│   ├── CartPage.ts
-│   ├── CheckoutPage.ts
-│   ├── LoginPage.ts
-│   └── ProductsPage.ts
+├── .github/workflows/playwright.yml
+├── pages/
 ├── fixtures/
-│   └── testFixtures.ts
 ├── test-data/
-│   └── users.ts
 ├── tests/
 │   ├── checkout.spec.ts
 │   ├── login.spec.ts
 │   └── products.spec.ts
-├── .gitignore
 ├── package.json
+├── package-lock.json
 ├── playwright.config.ts
-├── README.md
-└── package-lock.json
+└── README.md
 ```
 
 ## Prerequisites
 
-- Node.js 18 or above
+- Node.js (LTS recommended)
 - npm
-- Playwright browsers installed
 
-## Installation
+## Install and run
 
 ```bash
-npm install
+git clone https://github.com/harshadakhopade6/playwright-ecommerce-automation-saucedemo.git
+cd playwright-ecommerce-automation-saucedemo
+npm ci
 npx playwright install
-```
-
-## Run Tests
-
-```bash
 npm test
 ```
 
-Run in headed mode:
+Run with a visible browser:
 
 ```bash
 npm run test:headed
 ```
 
-Debug tests:
+Run in debug mode:
 
 ```bash
 npm run test:debug
 ```
 
-Open the HTML report:
+Open the HTML report after a run:
 
 ```bash
 npm run report
 ```
 
-## Configuration
+## Configuration and diagnostics
 
-The test configuration is in `playwright.config.ts`. It sets the base URL to the SauceDemo app and enables screenshots and traces on failure.
+- Base URL: `https://www.saucedemo.com`
+- Test directory: `tests/`
+- Screenshots: captured on failure
+- Trace: captured on the first retry
+- Browser project: desktop Chromium, as configured in `playwright.config.ts`
 
-## Example Scenarios Covered
+## Continuous integration
 
-- Valid login
-- Invalid password login
-- Invalid username login
-- Empty credential validation
-- Product sorting
-- Product addition to cart
-- Multi-item cart checkout flow
-- Order confirmation validation
+The repository contains a GitHub Actions workflow that installs Node.js and Playwright dependencies and runs the test suite on pushes and pull requests targeting `main` or `master`. The workflow uploads the Playwright report as an artifact.
 
-## Notes
+## Further improvements
 
-This suite is designed to validate core e-commerce user journeys against the public SauceDemo app and demonstrates a clean Playwright Page Object Model implementation.
+Potential next steps—not yet claimed as implemented—include adding accessibility checks, API-level coverage, environment-driven configuration, and a reviewed test-data strategy.
+
+## Author
+
+**Harshada Khopade** · QA Automation / SDET portfolio
+
+- [GitHub profile](https://github.com/harshadakhopade6)
+- [LinkedIn](https://www.linkedin.com/in/harshadakhopade/)
