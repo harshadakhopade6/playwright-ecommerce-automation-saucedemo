@@ -1,11 +1,22 @@
 {
-  "name": "playwright-project",
+  "name": "playwright-ecommerce-automation-saucedemo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
+  "description": "Playwright Test and TypeScript UI automation for the SauceDemo sample application",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "test-automation",
+    "qa-automation",
+    "typescript",
+    "e2e-testing",
+    "saucedemo"
+  ],
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
